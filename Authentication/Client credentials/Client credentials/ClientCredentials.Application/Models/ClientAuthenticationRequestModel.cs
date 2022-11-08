@@ -28,7 +28,7 @@ namespace ClientCredentials.Application.Models
 
             Scopes.ForEach(s => scopes += $"{s} ");
 
-            var content = new StringContent($"grant_type=client_credentials&client_id={ClientId}&client_secret={HttpUtility.UrlEncode(ClientSecret)}&{scopes}",
+            var content = new StringContent($"grant_type=client_credentials&client_id={ClientId}&client_secret={HttpUtility.UrlEncode(ClientSecret)}&scope={scopes}",
                 Encoding.UTF8, "application/x-www-form-urlencoded");
 
             return new HttpRequestMessage(HttpMethod.Post, TokenEndpoint)
